@@ -1,0 +1,34 @@
+# Build outputs
+bin/
+obj/
+
+# SQLite database files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Claude Code
+.claude/
+
+# .NET user secrets
+**/secrets.json
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+*.userprefs
+
+# macOS
+.DS_Store
+
+# Test results
+TestResults/
+coverage/
+*.trx
+*.coverage
+*.coveragexml

@@ -23,6 +23,11 @@ The OpenAPI spec is available at `http://localhost:5039/openapi/v1.json` when ru
 dotnet test
 ```
 
+## Testing with Postman
+
+A Postman collection with all endpoints pre-configured is available here:
+[Purchase Transactions — Postman Collection](https://.postman.co/workspace/My-Workspace~84160585-e85c-4a33-8541-016c4088e73c/collection/10584594-0d7ef5db-5fed-4b26-805e-9f37d0aa9bfd?action=share&creator=10584594)
+
 ## API Endpoints
 
 ### Create a transaction

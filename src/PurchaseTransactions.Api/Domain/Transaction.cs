@@ -12,16 +12,16 @@ public class Transaction
     public static Transaction Create(string? description, DateOnly transactionDate, decimal purchaseAmount)
     {
         if (string.IsNullOrWhiteSpace(description))
-            throw new DomainException("INVALID_DESCRIPTION", "Description is required.");
+            throw new DomainException(ErrorCodes.InvalidDescription, "Description is required.");
 
         if (description.Length > 50)
-            throw new DomainException("INVALID_DESCRIPTION", "Description must not exceed 50 characters.");
+            throw new DomainException(ErrorCodes.InvalidDescription, "Description must not exceed 50 characters.");
 
         if (transactionDate == default)
-            throw new DomainException("INVALID_TRANSACTION_DATE", "Transaction date is required.");
+            throw new DomainException(ErrorCodes.InvalidTransactionDate, "Transaction date is required.");
 
         if (purchaseAmount <= 0)
-            throw new DomainException("INVALID_PURCHASE_AMOUNT", "Purchase amount must be a positive value.");
+            throw new DomainException(ErrorCodes.InvalidPurchaseAmount, "Purchase amount must be a positive value.");
 
         return new Transaction
         {

@@ -1,6 +1,6 @@
 # Purchase Transactions API
 
-A RESTful API for storing and retrieving purchase transactions. Built with ASP.NET Core, Entity Framework Core, and SQLite — no external database or web server required.
+A RESTful API for storing and retrieving purchase transactions. Built with ASP.NET Core, Entity Framework Core, and SQLite, no external database or web server required.
 
 ## Requirements
 
@@ -23,10 +23,9 @@ The OpenAPI spec is available at `http://localhost:5039/openapi/v1.json` when ru
 dotnet test
 ```
 
-## Testing with Postman
+## Swagger UI
 
-A Postman collection with all endpoints pre-configured is available here:
-[Purchase Transactions — Postman Collection](https://.postman.co/workspace/My-Workspace~84160585-e85c-4a33-8541-016c4088e73c/collection/10584594-0d7ef5db-5fed-4b26-805e-9f37d0aa9bfd?action=share&creator=10584594)
+Interactive API documentation is available at `http://localhost:5039/swagger` when running in Development mode.
 
 ## API Endpoints
 

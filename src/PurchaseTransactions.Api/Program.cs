@@ -1,4 +1,6 @@
+using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
+using PurchaseTransactions.Api.Swagger;
 using PurchaseTransactions.Api.Data;
 using PurchaseTransactions.Api.Endpoints;
 using PurchaseTransactions.Api.Middleware;
@@ -19,7 +21,8 @@ builder.Services.AddScoped<IExchangeRateService, TreasuryExchangeRateService>();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
 
-builder.Services.AddOpenApi();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(o => o.OperationFilter<CurrencyExamplesOperationFilter>());
 
 var app = builder.Build();
 
@@ -37,7 +40,15 @@ app.UseExceptionHandler();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
+
+    var lifetime = app.Services.GetRequiredService<IHostApplicationLifetime>();
+    lifetime.ApplicationStarted.Register(() =>
+    {
+        var url = app.Urls.FirstOrDefault() ?? "http://localhost:5039";
+        Process.Start(new ProcessStartInfo($"{url}/swagger") { UseShellExecute = true });
+    });
 }
 
 app.MapTransactionEndpoints();
